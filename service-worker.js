@@ -2,9 +2,10 @@ const CACHE_NAME = "json-pwa-cache-v1";
 const urlsToCache = [
   "index.html",
   "manifest.json",
-  "a.json",
-  "icons/maly.jpg",
-  
+  "przyklad.json",
+  "icon.png",
+  "icons/mały.png",
+  "icons/duży.jpeg"
 ];
 
 self.addEventListener("install", event => {
