@@ -1,18 +1,63 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World PWA</title>
+
+    
+ 
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#317EFB">
-    <link rel="stylesheet" href="css/style.css">
+    
+   
+    <link rel="apple-touch-icon" sizes="192x192" href="icons/free.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icons/free.png">
+    
+    <meta name="theme-color" content="#2196f3">
+
 </head>
 <body>
-    <h1>Hello World PWA</h1>
-    <p>Witaj w mojej Progressive Web App!</p>
-    <button id="install-button">Zainstaluj aplikację</button>
-
-    <script src="app.js"></script>
+    <h1>Przykład wczytywania JSON z pliku (PWA)</h1>
+    <div id="content">Ładowanie danych...</div>
+    
+  
+    <button id="installPWA" 
+>📲 Zainstaluj aplikację</button>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let deferredPrompt;
+        const installButton = document.getElementById("installPWA");
+    
+        if (!installButton) {
+            console.error("❌ Brak przycisku #installPWA w HTML!");
+            return;
+        }
+    
+        window.addEventListener("beforeinstallprompt", (event) => {
+            event.preventDefault();
+            deferredPrompt = event;
+            installButton.style.display = "block";
+        });
+    
+        installButton.addEventListener("click", () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === "accepted") {
+                        console.log("✅ Użytkownik zainstalował PWA");
+                    }
+                    deferredPrompt = null;
+                    installButton.style.display = "none";
+                });
+            }
+        });
+    
+        window.addEventListener("appinstalled", () => {
+            console.log("📲 Aplikacja została zainstalowana");
+            installButton.style.display = "none";
+        });
+    });
+    </script>
 </body>
 </html>
