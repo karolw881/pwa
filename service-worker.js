@@ -3,7 +3,7 @@ const urlsToCache = [
   "index.html",
   "manifest.json",
   "a.json",
-  "free.png",
+  "icons/maly.jpg",
   
 ];
 
