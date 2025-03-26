@@ -1,6 +1,6 @@
 {
-    "name": "Ładowanie JSON PWA",
-    "short_name": "JSON PWA",
+    "name": "cos",
+    "short_name": "Cos",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#ffffff",
@@ -12,7 +12,7 @@
         "type": "image/png"
       },
       {
-        "src": "icons/duzy.png",
+        "src": "icons/maly.png",
         "sizes": "512x512",
         "type": "image/png"
       }
