@@ -2,8 +2,8 @@ const CACHE_NAME = "json-pwa-cache-v1";
 const urlsToCache = [
   "index.html",
   "manifest.json",
-  "przyklad.json",
-  "icons/mały.png"];
+  "a.json",
+  "icons/mały.jpg"];
 
 self.addEventListener("install", event => {
     event.waitUntil(
